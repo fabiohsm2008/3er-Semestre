@@ -2,14 +2,12 @@
 
 int modulo(int a, int n)
 {
-    int residuo;
-    if (a < 0){
-        residuo = (n/a) - 1;
-        residuo = (residuo * a) - n;
-        return residuo;
+    int q = a / n;
+    int residuo = a - q*n;
+    if (residuo < 0){
+        q = q - 1;
+        residuo = residuo + n;
     }
-    residuo = n / a;
-    residuo = n - (a*residuo);
     return residuo;
 }
 

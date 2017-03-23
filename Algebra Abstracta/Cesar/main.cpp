@@ -35,13 +35,18 @@ void decodifica(int n, string &cadena)
 
 int main()
 {
-    //cout << modulo(-15,26) << endl;
-    //cout << euclides(7,10) << endl;
+    cout << modulo(225,111) << endl;
+    cout << euclides(11,225) << endl;
+
     string c;
+    int clave;
+    cout << "Ingrese la palabra: ";
     cin >> c;
-    codifica(3,c);
+    cout << "Ingrese la clave: ";
+    cin >> clave;
+    codifica(clave,c);
     cout << c << endl;
-    decodifica(3,c);
+    decodifica(clave,c);
     cout << c << endl;
 
     return 0;
