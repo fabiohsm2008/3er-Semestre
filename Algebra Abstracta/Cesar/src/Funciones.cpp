@@ -5,7 +5,6 @@ int modulo(int a, int n)
     int q = a / n;
     int residuo = a - q*n;
     if (residuo < 0){
-        q = q - 1;
         residuo = residuo + n;
     }
     return residuo;
