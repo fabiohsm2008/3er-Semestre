@@ -13,6 +13,7 @@ private:
 public:
     Cesar();
     string codificar(string cadena);
+    string decodificar(string cadena);
     virtual ~Cesar();
 };
 
