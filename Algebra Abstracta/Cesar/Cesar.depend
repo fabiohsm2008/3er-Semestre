@@ -47,3 +47,24 @@
 	"Funciones.h"
 	<string.h>
 
+1490894948 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cesar\main.cpp
+	<iostream>
+	<string>
+	"Funciones.h"
+	"Cesar.h"
+
+1490841928 c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cesar\include\funciones.h
+	<string>
+
+1490841928 c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cesar\include\cesar.h
+	<iostream>
+	<string>
+
+1490894888 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cesar\src\cesar.cpp
+	"Cesar.h"
+	"Funciones.h"
+	<string.h>
+
+1490841928 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cesar\src\funciones.cpp
+	"Funciones.h"
+

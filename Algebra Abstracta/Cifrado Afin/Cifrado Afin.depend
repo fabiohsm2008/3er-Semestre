@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1490896720 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cifrado afin\main.cpp
+	<iostream>
+	<stdlib.h>
+	"Funciones.h"
+
+1490896120 c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cifrado afin\include\funciones.h
+	<string>
+
+1490896120 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cifrado afin\src\funciones.cpp
+	"Funciones.h"
+
