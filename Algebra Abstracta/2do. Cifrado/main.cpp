@@ -13,16 +13,18 @@ void cifrar(string cadena, int clave)
     int recorrido = 0;
     for(i = 0; i <= cadena.size(); i++){
         matriz[recorrido] += cadena[i];
-        if (recorrido = clave){
+        if (recorrido == clave - 1){
             comprobacion = comprobacion*(-1);
             recorrido = recorrido + comprobacion;
         }
-        else if (recorrido = -1){
+        else if (recorrido == -1){
+                cout << comprobacion << endl;
             comprobacion = comprobacion*(-1);
             recorrido += comprobacion;
         }
         else if (recorrido < clave - 1){
             recorrido += comprobacion;
+            //matriz[recorrido] += cadena[i];
         }
     }
     for(j = 0; j <= clave; j++){
