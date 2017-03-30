@@ -5,7 +5,15 @@
 	<string.h>
 	<map>
 
-1490897728 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\2do. cifrado\main.cpp
+1490899210 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\2do. cifrado\main.cpp
 	<iostream>
 	<string>
+	"Rutas.h"
+
+1490899223 c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\2do. cifrado\include\rutas.h
+	<string>
+	<iostream>
+
+1490899229 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\2do. cifrado\src\rutas.cpp
+	"Rutas.h"
 

@@ -32,7 +32,3 @@ string Cesar::decodificar(string cadena)
     return cadena;
 }
 
-Cesar::~Cesar()
-{
-    //dtor
-}

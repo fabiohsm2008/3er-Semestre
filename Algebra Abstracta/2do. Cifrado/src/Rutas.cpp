@@ -9,9 +9,10 @@ Rutas::Rutas()
 string Rutas::cifrar(string mensaje)
 {
 
+    return mensaje;
 }
 
-string Rutas::descifrar()
+string Rutas::descifrar(string mensaje)
 {
-
+    return mensaje;
 }

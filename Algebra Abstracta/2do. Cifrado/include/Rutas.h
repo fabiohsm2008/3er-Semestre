@@ -12,8 +12,8 @@ private:
     int clave;
 public:
     Rutas();
-    string cifrar();
-    string descifrar();
+    string cifrar(string mensaje);
+    string descifrar(string mensaje);
 };
 
 #endif // RUTAS_H
