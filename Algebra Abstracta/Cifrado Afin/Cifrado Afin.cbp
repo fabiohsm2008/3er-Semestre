@@ -34,8 +34,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Cifrado.h" />
 		<Unit filename="include/Funciones.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Cifrado.cpp" />
 		<Unit filename="src/Funciones.cpp" />
 		<Extensions>
 			<code_completion />
