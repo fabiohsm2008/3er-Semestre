@@ -11,12 +11,13 @@ using namespace std;
 class Cifrado
 {
 private:
-    string alfabeto = "abcdefghijklmnopqrstuvwxyz";
+    string alfabeto = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .,;";
     int clave_a;
     int clave_b;
     int privada;
 public:
     Cifrado();
+    Cifrado(int a, int b);
     string codificar(string cadena);
     string decodificar(string cadena);
 

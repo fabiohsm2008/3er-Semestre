@@ -14,6 +14,13 @@ Cifrado::Cifrado()
     cout << "Su segunda clave es: " << clave_b << endl;
 }
 
+Cifrado::Cifrado(int a, int b)
+{
+    this -> clave_a = a;
+    this -> clave_b = b;
+    privada = inverso(clave_a,alfabeto.length());
+}
+
 string Cifrado::codificar(string cadena)
 {
     int i;

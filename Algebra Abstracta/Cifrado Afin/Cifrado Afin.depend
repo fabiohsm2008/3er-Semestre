@@ -31,3 +31,24 @@
 1491447514 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\src\cifrado.cpp
 	"Cifrado.h"
 
+1492663406 source:c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\cifrado afin\src\funciones.cpp
+	"Funciones.h"
+
+1492663406 c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\cifrado afin\include\funciones.h
+
+1492710990 source:c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\cifrado afin\main.cpp
+	<iostream>
+	<string>
+	"Funciones.h"
+	"Cifrado.h"
+
+1492712198 c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\cifrado afin\include\cifrado.h
+	<iostream>
+	<stdlib.h>
+	<string>
+	<time.h>
+	"Funciones.h"
+
+1492710335 source:c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\cifrado afin\src\cifrado.cpp
+	"Cifrado.h"
+
