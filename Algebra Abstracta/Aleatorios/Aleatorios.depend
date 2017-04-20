@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1492663177 source:c:\users\usuario\desktop\aleatorios\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	<bitset>
+
