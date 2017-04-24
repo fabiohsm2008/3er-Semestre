@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1493002593 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\rsa\rsa\main.cpp
+	<iostream>
+	"Funciones.h"
+
+1493002512 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\rsa\rsa\include\funciones.h
+	<iostream>
+
+1493002890 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\rsa\rsa\src\funciones.cpp
+	"Funciones.h"
+
+1493006047 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\rsa\src\funciones.cpp
+	"Funciones.h"
+
+1493002512 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\rsa\include\funciones.h
+	<iostream>
+
+1493006022 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\rsa\main.cpp
+	<iostream>
+	"Funciones.h"
+

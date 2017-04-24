@@ -41,6 +41,18 @@ int inverso(int a, int b)
         x1 = x2;
         x2 = x;
     }
-
     return x1;
+}
+
+int potencia(int a, int b, int modu)
+{
+    int result = 1;
+    while(b != 0){
+        if(b&1){
+            result = modulo((result * a),modu);
+        }
+        a = modulo((a * a),modu);
+        b = b/2;
+    }
+    return result;
 }

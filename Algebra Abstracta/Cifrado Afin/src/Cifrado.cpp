@@ -25,7 +25,11 @@ string Cifrado::codificar(string cadena)
 {
     int i;
     for(i = 0; i <= cadena.length(); i++){
-        cadena[i] = alfabeto[modulo((clave_a*alfabeto.find(cadena[i])+clave_b),alfabeto.length())];
+        int temp = modulo(clave_a,alfabeto.length());
+        temp = temp * alfabeto.find(cadena[i]);
+        temp = modulo(temp,alfabeto.length()) + modulo(clave_b,alfabeto.length());
+        temp = modulo(temp,alfabeto.length());
+        cadena[i] = alfabeto[temp];
     }
     return cadena;
 }
@@ -34,7 +38,11 @@ string Cifrado::decodificar(string cadena)
 {
     int i;
     for(i = 0; i <= cadena.length(); i++){
-        cadena[i] = alfabeto[modulo((privada*(alfabeto.find(cadena[i])-clave_b)),alfabeto.length())];
+        int temp = modulo(clave_b,alfabeto.length());
+        temp = alfabeto.find(cadena[i]) - temp;
+        temp = modulo(privada,alfabeto.length()) * temp;
+        temp = modulo(temp,alfabeto.length());
+        cadena[i] = alfabeto[temp];
     }
     return cadena;
 }

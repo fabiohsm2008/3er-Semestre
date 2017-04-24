@@ -7,10 +7,6 @@ using namespace std;
 
 int main()
 {
-    /*string cadena;
-    cout << "Ingrese su frase:";
-    cin >> cadena;*/
-
     string cadena_1 = "VknyCwkmkCugfygCneqgCtuhlylvkCfqfkCgehwkB";
     Cifrado a(29847,24);
     cadena_1 = a.decodificar(cadena_1);

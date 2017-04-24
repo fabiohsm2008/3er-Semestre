@@ -10,25 +10,25 @@
 1490896120 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cifrado afin\src\funciones.cpp
 	"Funciones.h"
 
-1491447565 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\main.cpp
+1493007206 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\main.cpp
 	<iostream>
 	<string>
 	"Funciones.h"
 	"Cifrado.h"
 
-1491445788 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\include\funciones.h
+1492706740 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\include\funciones.h
 
-1491446678 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\src\funciones.cpp
+1492706740 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\src\funciones.cpp
 	"Funciones.h"
 
-1491446959 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\include\cifrado.h
+1492706740 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\include\cifrado.h
 	<iostream>
 	<stdlib.h>
 	<string>
 	<time.h>
 	"Funciones.h"
 
-1491447514 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\src\cifrado.cpp
+1493007134 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cifrado afin\src\cifrado.cpp
 	"Cifrado.h"
 
 1492663406 source:c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\cifrado afin\src\funciones.cpp
