@@ -24,10 +24,26 @@ void imprimir(int *a, int tam){
     cout << "]" << endl;
 }
 
-void quicksort(int *a, int *b){
-    int *p = a;
-    p += (b-a)/2;
-    cout << *p << endl;
+void quicksort(int* first, int* last){
+    int *pivote = first;
+    int *a = first;
+    int *b = last;
+    pivote += (b-a)/2;
+    while (a < b){
+        while (*a < *pivote)
+            ++a;
+        while (*b > *pivote)
+            --b;
+        if (a<=b){
+            swap(*a,*b);
+            ++a;
+            --b;
+        }
+    }
+    if (first < b)
+        quicksort(first, pivote);
+    if (last > a)
+        quicksort(pivote, last);
 }
 
 int main()
@@ -38,7 +54,6 @@ int main()
     int a[tama];
     generar(a,tama);
     imprimir(a,tama);
-
     quicksort(a,a+tama);
     imprimir(a,tama);
 
