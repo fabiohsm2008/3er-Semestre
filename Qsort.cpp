@@ -4,6 +4,12 @@
 
 using namespace std;
 
+void swap(int *a, int *b){
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 void generar(int *a, int tam){
     srand(time(NULL));
     for(int i = 0; i < tam; i++){
@@ -11,14 +17,14 @@ void generar(int *a, int tam){
     }
 }
 
-void imprimir(int *a, int tam){
+void imprimir(int *a, int *tam){
     cout << "[";
-    for(int i = 0; i < tam; i++){
-        if(i != tam-1){
-            cout << a[i] << ",";
+    for(; a < tam; a++){
+        if(a != tam-1){
+            cout << *a << ",";
         }
         else{
-            cout << a[i];
+            cout << *a;
         }
     }
     cout << "]" << endl;
@@ -26,24 +32,33 @@ void imprimir(int *a, int tam){
 
 void quicksort(int* first, int* last){
     int *pivote = first;
-    int *a = first;
-    int *b = last;
-    pivote += (b-a)/2;
-    while (a < b){
-        while (*a < *pivote)
-            ++a;
-        while (*b > *pivote)
-            --b;
-        if (a<=b){
-            swap(*a,*b);
-            ++a;
-            --b;
-        }
+    pivote = pivote + (last-first)/2;
+    cout << *pivote << endl;
+	for(int *i = first; i < pivote;){
+		if(*i > *pivote){
+			int *aux = i;
+			for(;aux < pivote; aux++)
+				swap(aux,aux+1);
+			pivote--;
+		}
+		else
+		   i++;
+	}
+	for(int *i = last; i>pivote;){
+		if(*i < *pivote){
+			int *aux = i;
+			for(;aux > pivote;aux--)
+				swap(aux,aux-1);
+			pivote++;
+		}
+		else
+		   i--;
     }
-    if (first < b)
-        quicksort(first, pivote);
-    if (last > a)
-        quicksort(pivote, last);
+
+    if (first < pivote)
+        quicksort(first, pivote-1);
+    if (last > pivote)
+        quicksort(pivote+1, last);
 }
 
 int main()
@@ -53,9 +68,9 @@ int main()
     cin >> tama;
     int a[tama];
     generar(a,tama);
-    imprimir(a,tama);
+    imprimir(a,a+tama);
     quicksort(a,a+tama);
-    imprimir(a,tama);
+    imprimir(a,a+tama);
 
     return 0;
 }
