@@ -18,16 +18,19 @@ int main()
     for(int i = 0; i < texto.size(); i++){
         cout << texto[i] << ",";
     }
+
     int temp[] = {16208,2744,1331,0};
     vector <ZZ> texto;
     for(int i = 0; i < sizeof(temp)/sizeof(temp[0]); i++){
         texto.push_back(to_ZZ(temp[i]));
     }
+
     cout << endl;
 
     texto_plano = Receptor.descifrar(texto);
     cout << texto_plano << endl;*/
 
-    cout << potencia_i(36,11,91);
+    ///cout << potencia_i(11,7,33);
+    ///cout << inversa(to_ZZ(5), to_ZZ(24));
 
 }

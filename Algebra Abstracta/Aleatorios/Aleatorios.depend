@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1493424351 source:c:\users\usuario\desktop\aleatorios\main.cpp
+1493448113 source:c:\users\usuario\desktop\aleatorios\main.cpp
 	<iostream>
 	"RSA.h"
 
-1493412246 source:c:\users\usuario\desktop\aleatorios\src\funciones.cpp
+1493444864 source:c:\users\usuario\desktop\aleatorios\src\funciones.cpp
 	"Funciones.h"
 
 1493424409 c:\users\usuario\desktop\aleatorios\include\funciones.h

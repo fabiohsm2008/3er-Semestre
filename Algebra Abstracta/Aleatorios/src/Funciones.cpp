@@ -175,29 +175,26 @@ ZZ ga(int bits_seed, int bits_num, int particiones, int vueltas)
     }
     int elementos_pedazo = bits_num/particiones;
     int residuo_elementos = bits_num%particiones;
-    if(residuo_elementos!=0)
-    {
-        elementos_pedazo += 1;
-    }
     int indice = 0;
-    while(indice < bits_num)
+    int cont_particiones = 0;
+    while(cont_particiones < particiones - 1)
     {
-        if((indice + elementos_pedazo) > bits_num)
+        if(cont_particiones%2 == 0)
         {
-            if(particiones%2!=0)
-            {
-                rotar_izquierda(a, indice, residuo_elementos, vueltas);
-                indice += elementos_pedazo;
-            }
-            else
-                rotar_derecha(a, indice, residuo_elementos, vueltas);
-                indice += elementos_pedazo;
+            rotar_izquierda(a, indice, elementos_pedazo, vueltas);
         }
-        rotar_izquierda(a, indice, elementos_pedazo, vueltas);
+        else
+            rotar_derecha(a, indice, elementos_pedazo, vueltas);
         indice += elementos_pedazo;
-        rotar_derecha(a, indice, elementos_pedazo, vueltas);
-        indice += elementos_pedazo;
+        cont_particiones++;
     }
+    if(cont_particiones%2 == 0)
+    {
+        rotar_izquierda(a, indice, bits_num - ((particiones - 1) * elementos_pedazo), vueltas);
+    }
+    else
+        rotar_derecha(a, indice, bits_num - ((particiones - 1) * elementos_pedazo), vueltas);
+
     ZZ num;
     num = convertir_decimal(a, bits_num);
     return num;
