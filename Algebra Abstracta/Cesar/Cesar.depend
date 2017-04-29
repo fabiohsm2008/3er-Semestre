@@ -26,26 +26,31 @@
 	<iostream>
 	<string>
 
-1490404030 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\main.cpp
+1493449444 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\main.cpp
 	<iostream>
-	<string.h>
+	<string>
+	<stdlib.h>
+	<time.h>
 	"Funciones.h"
 	"Cesar.h"
 
-1490287408 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\include\funciones.h
-	<string>
-
-1490395965 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\include\cesar.h
+1493449444 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\include\funciones.h
 	<iostream>
+	<vector>
+	<stdlib.h>
+	<time.h>
+	<NTL/ZZ.h>
+
+1493449136 c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\include\cesar.h
+	<iostream>
+	"Funciones.h"
 	<string>
 
-1490287408 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\src\funciones.cpp
+1493449137 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\src\funciones.cpp
 	"Funciones.h"
 
-1490404169 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\src\cesar.cpp
+1493449368 source:c:\users\usuario\desktop\3er-semestre-master\algebra abstracta\cesar\src\cesar.cpp
 	"Cesar.h"
-	"Funciones.h"
-	<string.h>
 
 1490899019 source:c:\users\alumno-a\desktop\3er-semestre-master\algebra abstracta\cesar\main.cpp
 	<iostream>

@@ -1,6 +1,7 @@
 #ifndef CESAR_H
 #define CESAR_H
 #include <iostream>
+#include "Funciones.h"
 #include <string>
 
 using namespace std;
@@ -8,7 +9,7 @@ using namespace std;
 class Cesar
 {
 private:
-    int clave;
+    ZZ clave;
     string alfabeto = "abcdefghijklmnopqrstuvwxyz";
 public:
     Cesar();
