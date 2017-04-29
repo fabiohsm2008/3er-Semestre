@@ -10,12 +10,14 @@ using namespace std;
 using namespace NTL;
 
 ZZ modulo(ZZ a, ZZ n);
-
 ZZ euclides(ZZ a, ZZ b);
+ZZ mcd(ZZ a, ZZ b);
+std::vector <ZZ> euclides_extendido(ZZ a, ZZ b);
+ZZ inversa(ZZ a, ZZ alfabeto);
+ZZ potencia(int a, ZZ b, ZZ modu);
 
-ZZ inverso(ZZ a, ZZ b);
-
-ZZ potencia(ZZ a, ZZ b, ZZ modu);
+int potencia_i(int a, int b, int modu);
+int modulo_i(int a, int n);
 
 ///Funciones para aleatorios
 ZZ convertir_decimal(std::vector <bool> a, int bits_num);

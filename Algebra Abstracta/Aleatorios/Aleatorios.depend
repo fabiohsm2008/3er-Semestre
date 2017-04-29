@@ -1,23 +1,24 @@
 # depslib dependency file v1.0
-1493275041 source:c:\users\usuario\desktop\aleatorios\main.cpp
+1493424351 source:c:\users\usuario\desktop\aleatorios\main.cpp
 	<iostream>
 	"RSA.h"
 
-1493274695 source:c:\users\usuario\desktop\aleatorios\src\funciones.cpp
+1493412246 source:c:\users\usuario\desktop\aleatorios\src\funciones.cpp
 	"Funciones.h"
 
-1493272687 c:\users\usuario\desktop\aleatorios\include\funciones.h
+1493424409 c:\users\usuario\desktop\aleatorios\include\funciones.h
 	<iostream>
 	<vector>
 	<stdlib.h>
 	<time.h>
 	<NTL/ZZ.h>
 
-1493275078 source:c:\users\usuario\desktop\aleatorios\src\rsa.cpp
+1493412149 source:c:\users\usuario\desktop\aleatorios\src\rsa.cpp
 	"RSA.h"
 
-1493274043 c:\users\usuario\desktop\aleatorios\include\rsa.h
-	"Funciones.h"
+1493412149 c:\users\usuario\desktop\aleatorios\include\rsa.h
 	<string>
+	<vector>
+	"Funciones.h"
 	<NTL/ZZ.h>
 

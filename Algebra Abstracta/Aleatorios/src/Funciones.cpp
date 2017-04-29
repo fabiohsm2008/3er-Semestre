@@ -2,66 +2,118 @@
 
 ZZ modulo(ZZ a, ZZ n)
 {
-    ZZ q = a / n;
-    ZZ residuo = a - q*n;
-    if (residuo < 0){
-        residuo = residuo + n;
-    }
-    return residuo;
+    ZZ q, r;
+	q = a / n;
+	r = a - (q*n);
+	if (r < 0)
+		r += n;
+	return r;
 }
-
 ZZ euclides(ZZ a, ZZ b)
 {
-    ZZ r;
-    r = modulo(a,b);
-    while(r != 0){
-        a = b;
-        b = r;
-        r = modulo(a,b);
-    }
-    return b;
+     ZZ residuo = modulo(a,b);
+     while(residuo!=0)
+     {
+         a = b;
+         b = residuo;
+         residuo = modulo(a,b);
+     }
+     return b;
 }
-
-ZZ inverso(ZZ a, ZZ b)
+ZZ mcd(ZZ a, ZZ b)
 {
-    ZZ r1 = a, r2 = b;
-    ZZ x1 , x2;
-    x1 = 0;
-    x2 = 1;
-
-    ZZ q , r , x ;
-
-    while(r2>0){
+    ZZ resultado;
+    resultado = 1;
+    ZZ i;
+    for(i=1;i<=a;i++)
+    {
+        if((modulo(a,i)==0)&&(modulo(b,i)==0))
+        {
+            resultado = i;
+        }
+    }
+    return resultado;
+}
+std::vector <ZZ> euclides_extendido(ZZ a, ZZ b)
+{
+    std::vector <ZZ> resultados;
+    ZZ r1,s1,t1,r2,s2,t2,q,r;
+    r1 = a;
+    r2 = b;
+    s1 = 1;
+    s2 = 0;
+    t1 = 0;
+    t2 = 1;
+    while(r2>0)
+    {
         q = r1/r2;
 
-        r = r1 - q*r2;
+        ZZ r = r1 - q * r2;
         r1 = r2;
         r2 = r;
 
-        x = x1 -q*x2;
-        x1 = x2;
-        x2 = x;
-    }
-    if(x1 < 0)
-        x1 = a - x1;
-    return x1;
-}
+        ZZ s = s1 - q * s2;
+        s1 = s2;
+        s2 = s;
 
-ZZ potencia(ZZ a, ZZ b, ZZ modu)
+        ZZ t = t1 - q * t2;
+        t1 = t2;
+        t2 = t;
+
+    }
+    resultados.push_back(r1);
+    resultados.push_back(s1);
+    resultados.push_back(t1);
+    return resultados;
+}
+ZZ inversa(ZZ a, ZZ alfabeto)
 {
-    ZZ result, temp, lol;
-    result = 1;
-    temp = 2;
-    lol = to_ZZ(a);
-    while(b > 0){
-        if(modulo(b,temp) == 1){
-            result = modulo((result * a),modu);
+    ZZ x = euclides_extendido(a,alfabeto)[1];
+    if(x<0)
+    {
+        return modulo(x,alfabeto);
+    }
+    return x;
+}
+ZZ potencia(int a, ZZ b, ZZ modu)
+{
+    ZZ result = to_ZZ(1);
+    ZZ n = to_ZZ(2);
+    ZZ wapo = to_ZZ(a);
+    while(b != 0){
+        if(modulo(b,n)==1){
+            result = modulo((result * wapo),modu);
         }
-        lol = modulo((lol * lol),modu);
+        wapo = modulo((wapo * wapo),modu);
         b = b/2;
     }
     return result;
 }
+
+int potencia_i(int a, int b, int modu)
+{
+    int result = 1;
+    while(b != 0){
+        if(b&1){
+            result = modulo_i((result * a),modu);
+        }
+        cout << a << endl;
+        a = modulo_i((a * a),modu);
+        b = b/2;
+    }
+    return result;
+}
+
+int modulo_i(int a, int n)
+{
+    int q, r;
+	q = a / n;
+	r = a - (q*n);
+	if (r < 0)
+		r += n;
+	return r;
+}
+
 ///Funciones para aleatorios ##############################################################################
 ZZ convertir_decimal(vector <bool> a, int bits_num)
 {
@@ -106,7 +158,6 @@ void rotar_izquierda(vector <bool> &vec, int indice, int elementos, int vueltas)
 }
 ZZ ga(int bits_seed, int bits_num, int particiones, int vueltas)
 {
-
     vector <bool> a;
     for(int i = 0; i < bits_num; i++)
     {
