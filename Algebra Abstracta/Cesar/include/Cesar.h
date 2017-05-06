@@ -10,7 +10,7 @@ class Cesar
 {
 private:
     ZZ clave;
-    string alfabeto = "abcdefghijklmnopqrstuvwxyz";
+    string alfabeto = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .,;";
 public:
     Cesar();
     string codificar(string cadena);

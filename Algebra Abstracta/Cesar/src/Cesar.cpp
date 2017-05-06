@@ -13,7 +13,7 @@ string Cesar::codificar(string cadena)
         if (alfabeto.find(cadena[i])+clave >= alfabeto.size())
             cadena[i] = alfabeto[to_int(modulo(to_ZZ(alfabeto.find(cadena[i]))+clave , to_ZZ(alfabeto.size())))];
         else
-            cadena[i] = alfabeto[alfabeto.find(cadena[i])+to_int(clave)];
+            cadena[i] = alfabeto[alfabeto.find(cadena[i]) + to_int(clave)];
     }
     return cadena;
 }
