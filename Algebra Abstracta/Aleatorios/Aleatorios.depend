@@ -22,3 +22,26 @@
 	"Funciones.h"
 	<NTL/ZZ.h>
 
+1495206338 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\aleatorios\main.cpp
+	<iostream>
+	"RSA.h"
+
+1495206338 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\aleatorios\include\rsa.h
+	<string>
+	<vector>
+	"Funciones.h"
+	<NTL/ZZ.h>
+
+1495206338 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\aleatorios\include\funciones.h
+	<iostream>
+	<vector>
+	<stdlib.h>
+	<time.h>
+	<NTL/ZZ.h>
+
+1495206338 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\aleatorios\src\funciones.cpp
+	"Funciones.h"
+
+1495206338 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\aleatorios\src\rsa.cpp
+	"RSA.h"
+

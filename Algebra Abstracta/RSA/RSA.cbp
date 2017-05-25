@@ -36,11 +36,13 @@
 		</Compiler>
 		<Linker>
 			<Add option="-lntl" />
-			<Add library="../../../../../../../MinGW/lib/libntl.a" />
+			<Add library="C:/Program Files (x86)/CodeBlocks/MinGW/lib/libntl.a" />
 		</Linker>
 		<Unit filename="include/Funciones.h" />
+		<Unit filename="include/RSA.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Funciones.cpp" />
+		<Unit filename="src/RSA.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
