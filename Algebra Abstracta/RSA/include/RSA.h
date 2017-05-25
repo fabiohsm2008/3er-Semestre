@@ -13,7 +13,7 @@ private:
     ZZ N;
     ZZ p;
     ZZ q;
-    string alfabeto = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,;#";
+    string alfabeto = "abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789.,;:-_()@{}+/";
 public:
     RSA(int bits);
     RSA(ZZ,ZZ);
@@ -31,6 +31,7 @@ public:
     void set_q(ZZ b);
     void set_N(ZZ c);
     void set_d(ZZ x);
+    void set_e(ZZ y);
 };
 
 #endif // RSA_H

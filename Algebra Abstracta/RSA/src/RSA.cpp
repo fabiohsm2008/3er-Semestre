@@ -21,11 +21,10 @@ string RSA::cifrar(string mensaje){
     ZZ temp = to_ZZ(digitos.size());
     ZZ N_1 = to_ZZ(zzToString(N).size()-1);
     while(modulo(temp,N_1) != 0){
-        int pos = alfabeto.find("#");
+        int pos = alfabeto.find("w");
         digitos += zzToString(to_ZZ(pos));
         temp = to_ZZ(digitos.size());
     }
-
     string dig_2;
     for(int j = 0; j < digitos.size();){
         int temp = 0;
@@ -36,6 +35,7 @@ string RSA::cifrar(string mensaje){
             ++temp;
             ++j;
         }
+        cout << "lkjasd";
         temp_2 = potencia(stringTozz(tempi),e,N);
         ZZ cont = to_ZZ(zzToString(temp_2).size());
         while(cont < to_ZZ(zzToString(N).size())){
@@ -76,7 +76,7 @@ string RSA::descifrar(string mensaje){
             }
             message+=alfabeto[to_int(stringTozz(letra))];
         }
-        while(message[message.length()-1]=='#'){
+        while(message[message.length()-1]=='w'){
             aux="";
             for(int i=0;i<message.length()-1;i++)
                 aux+=message[i];
@@ -131,6 +131,8 @@ void RSA::generar_claves(int bits)
     this -> d = inversa(e, phi_N);
     cout << "Clave privada: " << d << endl;
     cout <<"N: " << N << endl;
+    cout << "p: " << p << endl;
+    cout << "q: " << q << endl;
 }
 
 ZZ RSA::get_d(){
@@ -151,4 +153,24 @@ ZZ RSA::get_p(){
 
 ZZ RSA::get_q(){
     return q;
+}
+
+void RSA::set_p(ZZ a){
+    this -> p = a;
+}
+
+void RSA::set_q(ZZ b){
+    this -> q = b;
+}
+
+void RSA::set_N(ZZ c){
+    this -> N = c;
+}
+
+void RSA::set_d(ZZ x){
+    this -> d = x;
+}
+
+void RSA::set_e(ZZ y){
+    this -> e = y;
 }

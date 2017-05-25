@@ -42,3 +42,27 @@
 	<string>
 	"Funciones.h"
 
+1495737701 source:c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\rsa\main.cpp
+	<iostream>
+	<fstream>
+	"RSA.h"
+
+1495736068 c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\rsa\include\rsa.h
+	<string>
+	"Funciones.h"
+
+1495695190 c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\rsa\include\funciones.h
+	<iostream>
+	<string>
+	<vector>
+	<stdlib.h>
+	<time.h>
+	<NTL/ZZ.h>
+	<sstream>
+
+1495737312 source:c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\rsa\src\funciones.cpp
+	"Funciones.h"
+
+1495737896 source:c:\users\alumno-a\downloads\3er-semestre-master\algebra abstracta\rsa\src\rsa.cpp
+	"RSA.h"
+
