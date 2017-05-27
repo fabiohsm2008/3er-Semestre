@@ -29,18 +29,16 @@ string RSA::cifrar(string mensaje){
     for(int j = 0; j < digitos.size();){
         int temp = 0;
         string tempi;
-        ZZ temp_2;
         while(temp < to_int(N_1)){
             tempi += digitos[j];
             ++temp;
             ++j;
         }
-        cout << "lkjasd";
-        temp_2 = potencia(stringTozz(tempi),e,N);
-        ZZ cont = to_ZZ(zzToString(temp_2).size());
-        while(cont < to_ZZ(zzToString(N).size())){
+        ZZ temp_2 = potenciaMod(stringTozz(tempi),e,N);
+        ZZ cont_num = to_ZZ(zzToString(temp_2).size());
+        while(cont_num < zzToString(N).size()){
             dig_2 += "0";
-            ++cont;
+            ++cont_num;
         }
         dig_2 += zzToString(temp_2);
     }
@@ -48,41 +46,40 @@ string RSA::cifrar(string mensaje){
 }
 
 string RSA::descifrar(string mensaje){
-    string message;
-        string letra;
+    string resultado;
+    int num = (zzToString(N).size());
+    for(int i = 0; i < mensaje.size();){
+        int a = 0;
         string temp;
-        string aux;
-        ZZ num;
-        int tam = zzToString(to_ZZ(alfabeto.length()-1)).length();
-        int tamN= zzToString(N).length();
-        for(int i=0;i<mensaje.length();i+=tamN){
-            letra="";
-            for(int j=0;j<tamN;j++){
-                letra+=mensaje[j+i];
-            }
-            num=stringTozz(letra);
-            letra=zzToString(chino_RSA(num));
-            while(letra.length()<tamN-1){
-                aux=letra;
-                letra="0";
-                letra+=aux;
-            }
-            temp+=letra;
+        while(a < num){
+            a++;
+            temp += mensaje[i];
+            ++i;
         }
-        for(int i=0;i<temp.length();i+=tam){
-            letra="";
-            for(int j=0;j<tam;j++){
-                letra+=temp[j+i];
-            }
-            message+=alfabeto[to_int(stringTozz(letra))];
+        ZZ valor = chino_RSA(stringTozz(temp));
+        int x = zzToString(valor).size();
+        while(x < zzToString(N).size()-1){
+            resultado += "0";
+            ++x;
         }
-        while(message[message.length()-1]=='w'){
-            aux="";
-            for(int i=0;i<message.length()-1;i++)
-                aux+=message[i];
-            message=aux;
+        resultado += zzToString(valor);
+    }
+    string dig = zzToString(to_ZZ(alfabeto.size()-1));
+    string rpta;
+    for(int j = 0; j < resultado.size();){
+        int s = 0;
+        string tempi;
+        while(s < dig.size()){
+            tempi += resultado[j];
+            ++s;
+            ++j;
         }
-        return message;
+        rpta += alfabeto[to_int(stringTozz(tempi))];
+    }
+    while(rpta[rpta.size()-1] == 'w'){
+        rpta.erase(rpta.size()-1);
+    }
+    return rpta;
 }
 
 ZZ RSA::chino_RSA(ZZ num){

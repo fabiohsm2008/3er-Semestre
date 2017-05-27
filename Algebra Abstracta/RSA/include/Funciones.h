@@ -19,6 +19,8 @@ ZZ inversa(ZZ a, ZZ alfabeto);
 ZZ potencia(ZZ a, ZZ b, ZZ modu);
 string zzToString(ZZ z);
 ZZ stringTozz(string str);
+vector<bool> ZZtoBinary(ZZ num);
+ZZ potenciaMod(ZZ n, ZZ m, ZZ mod);
 
 int potencia_i(int a, int b, int modu);
 int modulo_i(int a, int n);

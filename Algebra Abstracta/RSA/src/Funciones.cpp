@@ -125,6 +125,29 @@ int modulo_i(int a, int n)
 	return r;
 }
 
+vector<bool> ZZtoBinary(ZZ num){
+    vector<bool> binario;
+    while(num>0){
+        binario.push_back(to_int(modulo(num,to_ZZ(2))));
+        num=num>>1;
+    }
+    return binario;
+}
+
+ZZ potenciaMod(ZZ n, ZZ m, ZZ mod){
+    if(n>mod)
+        n=modulo(n,mod);
+    vector<bool> b=ZZtoBinary(m);
+    ZZ d=to_ZZ(1);
+	for(int i=b.size();i>0;i--){
+        d=modulo(d*d,mod);
+        if(b[i-1]==1)
+            d=modulo(d*n,mod);
+	}
+	return d;
+}
+
+
 ///Funciones para aleatorios ##############################################################################
 ZZ convertir_decimal(vector <bool> a, int bits_num)
 {
