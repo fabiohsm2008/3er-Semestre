@@ -13,10 +13,14 @@ string RSA::cifrar(string mensaje){
     string digitos;
 
     for(int i = 0; i < mensaje.size(); i++){
-        int pos = alfabeto.find(mensaje[i]);
-        if(pos < 10)
+        ZZ pos = to_ZZ(alfabeto.find(mensaje[i]));
+        string nume = zzToString(to_ZZ(alfabeto.find(alfabeto.size()-1)));
+        int num_pos = zzToString(pos).size();
+        while(num_pos < nume.size()){
             digitos += "0";
-        digitos += zzToString(to_ZZ(pos));
+            num_pos++;
+        }
+        digitos += zzToString(pos);
     }
     ZZ temp = to_ZZ(digitos.size());
     ZZ N_1 = to_ZZ(zzToString(N).size()-1);
