@@ -69,15 +69,14 @@ int main()
             ficheroSalida.close();}
             break;
         case 3:{
-            ifstream entrada;
-            string mess;
-            entrada.open ("entrada.txt");
-            getline(entrada,mess);
-            cout << Receptor.descifrar(mess);
-            entrada.close();
+            string mess, desci;
+            cout << "Ingrese el mensaje cifrado: ";
+            cin >> mess;
+            desci = Receptor.descifrar(mess);
+            cout << desci << endl;
             ofstream salida;
             salida.open("ofset.txt");
-            salida << Receptor.descifrar(mess);
+            salida << desci;
             salida.close();}
             break;
         }

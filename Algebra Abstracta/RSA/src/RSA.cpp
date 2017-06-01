@@ -17,11 +17,11 @@ string RSA::cifrar(string mensaje){
 
     for(int i = 0; i < mensaje.size(); i++){
         ZZ pos = to_ZZ(alfabeto.find(mensaje[i]));
-        string nume = zzToString(to_ZZ(alfabeto.find(alfabeto.size()-1)));
-        int num_pos = zzToString(pos).size();
-        while(num_pos < nume.size()){
+        /*string nume = zzToString(to_ZZ(alfabeto.find(alfabeto.size()-1)));
+        int num_pos = zzToString(pos).size();*/
+        if(pos < 10){
             digitos += "0";
-            num_pos++;
+            ///num_pos++;
         }
         digitos += zzToString(pos);
     }
@@ -109,15 +109,15 @@ ZZ RSA::chino_RSA(ZZ num){
 
 void RSA::generar_claves(int bits)
 {
-    ZZ P = ga(11,bits/2,3,3);
-    ZZ Q = ga(11,bits/2,2,4);
+    ZZ P = ga(11,bits,3,3);
+    ZZ Q = ga(11,bits,2,4);
     while(ProbPrime(P,10)!=1)
     {
-        P = ga(11,bits/2,3,3);
+        P = ga(11,bits,3,3);
     }
     while(ProbPrime(Q,10)!=1)
     {
-        Q = ga(11,bits/2,2,4);
+        Q = ga(11,bits,2,4);
     }
     this -> p = P;
     this -> q = Q;
@@ -125,10 +125,10 @@ void RSA::generar_claves(int bits)
     ZZ phi_N;
     phi_N = (P - 1) * (Q - 1);
     ZZ e;
-    e = ga(11,bits/2,2,2);
+    e = ga(11,bits,2,2);
     while(e > phi_N || (euclides(e, phi_N) != 1))
     {
-        e = ga(11,bits/2,2,2);
+        e = ga(11,bits,2,2);
     }
     this -> e = e;
     this -> d = inversa(e, phi_N);

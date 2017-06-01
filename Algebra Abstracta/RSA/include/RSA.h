@@ -13,7 +13,7 @@ private:
     ZZ N;
     ZZ p;
     ZZ q;
-    string alfabeto = "abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789.,;:-_()@{}+/";
+    string alfabeto = "0123456789 abcdefghijklmnopqrstuvwxyz.,ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 public:
     RSA(int bits);
     RSA(ZZ,ZZ);
