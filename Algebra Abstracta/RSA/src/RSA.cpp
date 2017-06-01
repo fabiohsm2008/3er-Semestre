@@ -1,4 +1,7 @@
 #include "RSA.h"
+#include <fstream>
+
+using namespace std;
 
 RSA::RSA(int bits){
     generar_claves(bits);
@@ -106,15 +109,15 @@ ZZ RSA::chino_RSA(ZZ num){
 
 void RSA::generar_claves(int bits)
 {
-    ZZ P = ga(11,bits,3,3);
-    ZZ Q = ga(11,bits,2,4);
+    ZZ P = ga(11,bits/2,3,3);
+    ZZ Q = ga(11,bits/2,2,4);
     while(ProbPrime(P,10)!=1)
     {
-        P = ga(11,bits,3,3);
+        P = ga(11,bits/2,3,3);
     }
     while(ProbPrime(Q,10)!=1)
     {
-        Q = ga(11,bits,2,4);
+        Q = ga(11,bits/2,2,4);
     }
     this -> p = P;
     this -> q = Q;
@@ -122,18 +125,13 @@ void RSA::generar_claves(int bits)
     ZZ phi_N;
     phi_N = (P - 1) * (Q - 1);
     ZZ e;
-    e = ga(11,bits,2,2);
+    e = ga(11,bits/2,2,2);
     while(e > phi_N || (euclides(e, phi_N) != 1))
     {
-        e = ga(11,bits,2,2);
+        e = ga(11,bits/2,2,2);
     }
-    cout <<"Clave publica: " << e << endl;
     this -> e = e;
     this -> d = inversa(e, phi_N);
-    cout << "Clave privada: " << d << endl;
-    cout <<"N: " << N << endl;
-    cout << "p: " << p << endl;
-    cout << "q: " << q << endl;
 }
 
 ZZ RSA::get_d(){
@@ -174,4 +172,14 @@ void RSA::set_d(ZZ x){
 
 void RSA::set_e(ZZ y){
     this -> e = y;
+}
+
+void RSA::impr_claves(){
+    cout << "Clave publica: " << this -> e << endl;
+    cout << "N: " << this -> N << endl;
+    ofstream guardarClaves;
+    guardarClaves.open("Claves.txt");
+    guardarClaves << "e: " << e << endl;
+    guardarClaves << "N: " << N << endl;
+    guardarClaves.close();
 }

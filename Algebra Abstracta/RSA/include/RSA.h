@@ -32,6 +32,7 @@ public:
     void set_N(ZZ c);
     void set_d(ZZ x);
     void set_e(ZZ y);
+    void impr_claves();
 };
 
 #endif // RSA_H
