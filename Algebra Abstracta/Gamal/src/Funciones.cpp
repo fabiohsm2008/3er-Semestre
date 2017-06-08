@@ -151,7 +151,7 @@ ZZ raiz_primitiva(ZZ p){
     ZZ q, g;
     q = (p - 1)/2;
     for(int i = 0; i < p-1; i++){
-        g = p - i;
+        g = (p-1) - i;
         if((potenciaMod(g, to_ZZ(2), p) != 1) && (potenciaMod(g, q, p) != 1))
             return q;
     }
