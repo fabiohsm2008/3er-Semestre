@@ -12,7 +12,7 @@ Gamal::Gamal(ZZ e1, ZZ e2, ZZ publica){
 }
 
 string Gamal::cifrar(string mensaje){
-    ZZ r = modulo(ga(11,1024,4,6),p-3) + 1;
+    ZZ r = modulo(ga(11,1024,4,6),p-5) + 2;
     ZZ c_1 = potenciaMod(this -> e_1,r,this -> p);
     ZZ Km = potenciaMod(this -> e_2,r,this -> p);
     string digitos;

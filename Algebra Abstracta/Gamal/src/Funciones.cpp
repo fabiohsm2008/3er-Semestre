@@ -155,7 +155,7 @@ ZZ raiz_primitiva(ZZ p){
         if((potenciaMod(g, to_ZZ(2), p) != 1) && (potenciaMod(g, q, p) != 1))
             return q;
     }
-    return q;
+    return g;
 }
 
 ///Funciones para aleatorios ##############################################################################
