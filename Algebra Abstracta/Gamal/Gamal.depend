@@ -24,17 +24,17 @@
 	"Funciones.h"
 	<fstream>
 
-1496902486 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\main.cpp
+1497496462 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\main.cpp
 	<iostream>
 	<fstream>
 	"Gamal.h"
 
-1496901806 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\include\gamal.h
+1497496446 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\include\gamal.h
 	<string>
 	"Funciones.h"
 	<fstream>
 
-1496890555 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\include\funciones.h
+1496930934 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\include\funciones.h
 	<iostream>
 	<string>
 	<vector>
@@ -43,9 +43,9 @@
 	<NTL/ZZ.h>
 	<sstream>
 
-1496937407 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\src\funciones.cpp
+1496930934 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\src\funciones.cpp
 	"Funciones.h"
 
-1496937491 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\src\gamal.cpp
+1497496573 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\gamal\src\gamal.cpp
 	"Gamal.h"
 

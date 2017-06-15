@@ -15,8 +15,8 @@ string Gamal::cifrar(string mensaje){
     ZZ r = modulo(ga(11,1024,4,6),p-5) + 2;
     ZZ c_1 = potenciaMod(this -> e_1,r,this -> p);
     ZZ Km = potenciaMod(this -> e_2,r,this -> p);
-    string digitos;
 
+    string digitos;
     for(int i = 0; i < mensaje.size(); i++){
         ZZ pos = to_ZZ(alfabeto.find(mensaje[i]));
         if(pos < 10){
@@ -48,15 +48,17 @@ string Gamal::cifrar(string mensaje){
         }
         dig_2 += zzToString(temp_2);
     }
-    ofstream guardar_C;
-    guardar_C.open("guardar_C.txt");
-    guardar_C << zzToString(c_1);
-    guardar_C.close();
-    return dig_2;
+    int tama = zzToString(p).size()-zzToString(c_1).size();
+    string cifrado(tama,'0');
+    cifrado += zzToString(c_1);
+    cifrado += dig_2;
+    return cifrado;
 }
 
-string Gamal::descifrar(string mensaje, ZZ C){
-    ZZ Km = potenciaMod(C,this -> d,this -> p);
+string Gamal::descifrar(string mensaje){
+    string C = mensaje.substr(0,zzToString(p).size());
+    mensaje = mensaje.substr(zzToString(p).size());
+    ZZ Km = potenciaMod(stringTozz(C),this -> d,this -> p);
     string resultado;
     int num = (zzToString(p).size());
     for(int i = 0; i < mensaje.size();){

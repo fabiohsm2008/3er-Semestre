@@ -43,9 +43,7 @@ int main()
             string mess, desci, c;
             cout << "Ingrese el mensaje cifrado: ";
             cin >> mess;
-            cout << "Ingrese la variable C: ";
-            cin >> c;
-            desci = Receptor.descifrar(mess,stringTozz(c));
+            desci = Receptor.descifrar(mess);
             cout << desci << endl;
             ofstream salida;
             salida.open("ofset.txt");

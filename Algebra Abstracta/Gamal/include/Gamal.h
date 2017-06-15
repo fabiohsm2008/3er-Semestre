@@ -16,7 +16,7 @@ public:
     Gamal(int bits);
     Gamal(ZZ e1, ZZ e2, ZZ publica);
     string cifrar(string mensaje);
-    string descifrar(string mensaje, ZZ C);
+    string descifrar(string mensaje);
     void generar_claves(int bits);
     void impr_claves();
 
