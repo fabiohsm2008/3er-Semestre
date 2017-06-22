@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1498106525 source:c:\users\usuario\desktop\firma_digital\main.cpp
+	<iostream>
+	<fstream>
+	"Firma.h"
+
+1498084263 source:c:\users\usuario\desktop\firma_digital\src\firma.cpp
+	"Firma.h"
+	<fstream>
+
+1498114281 c:\users\usuario\desktop\firma_digital\include\firma.h
+	<string>
+	"Funciones.h"
+
+1498084090 c:\users\usuario\desktop\firma_digital\include\funciones.h
+	<iostream>
+	<string>
+	<vector>
+	<stdlib.h>
+	<time.h>
+	<NTL/ZZ.h>
+	<sstream>
+
+1498084090 source:c:\users\usuario\desktop\firma_digital\src\funciones.cpp
+	"Funciones.h"
+
