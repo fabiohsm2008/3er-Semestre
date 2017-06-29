@@ -166,23 +166,7 @@ ZZ convertir_decimal(vector <bool> a, int bits_num)
     }
     return num;
 }
-ZZ convertir_base10(string a)
-{
-    ZZ num;
-    num = 0;
-    int e = 0;
-    for(int i = a.size() - 1; i >= 0; i--)
-    {
-        if(a[i] == '1')
-        {
-            num += power2_ZZ(e);
-        }
-        else
-            num += to_ZZ(0);
-        e += 1;
-    }
-    return num;
-}
+
 void rotar_derecha(vector <bool> &vec, int indice, int elementos, int vueltas)
 {
     bool temp;
@@ -216,18 +200,14 @@ void rotar_izquierda(vector <bool> &vec, int indice, int elementos, int vueltas)
 vector<bool> ga(int bits_seed, int bits_num, int particiones, int vueltas)
 {
     vector <bool> a;
-    for(int i = 0; i < bits_num; i++)
-    {
-        a.push_back(0);
-    }
     for(int i = 0; i < bits_seed; i++)
     {
-        a[i] = rand()%2;
+        a.push_back(modulo_i(rand(),2));
     }
     int s = 0;
     for(int i = bits_seed; i < bits_num; i++)
     {
-        a[i] = a[s] ^ a[s+1];
+        a.push_back(a[s] ^ a[s+1]);
         s++;
     }
     int elementos_pedazo = bits_num/particiones;
@@ -254,27 +234,27 @@ vector<bool> ga(int bits_seed, int bits_num, int particiones, int vueltas)
     return a;
 }
 
-string permutar56(string bits){
-    string respuesta;
+vector<bool> permutar56(vector<bool> bits){
+    vector<bool> respuesta;
     int tabla_predefinida[56] = {57,49,41,33,25,17,9,1,57,50,42,34,26,18,10,2,59,57,43,35,27,19,11,3,60,52,44,36,63,55,47,39,31,23,15,7,62,54,46,38,30,22,14,6,61,53,45,37,29,21,13,5,28,20,12,4};
     for(int i = 0; i < 56; i++){
-        respuesta+= bits[tabla_predefinida[i]-1];
+        respuesta.push_back(bits[tabla_predefinida[i]-1]);
     }
     return respuesta;
 }
 
-string permutar48(string bits){
-    string respuesta;
+vector<bool> permutar48(vector<bool> bits){
+    vector<bool> respuesta;
     int tabla_predefinida[48] = {14,17,11,24,1,5,3,28,15,6,21,10,23,19,12,4,26,8,16,7,27,20,13,2,41,52,31,37,47,55,30,40,51,41,33,48,44,49,39,56,34,53,46,42,50,36,29,32};
     for(int i = 0; i < 48; i++){
-        respuesta+= bits[tabla_predefinida[i]-1];
+        respuesta.push_back(bits[tabla_predefinida[i]-1]);
     }
     return respuesta;
 }
 
-string rotarizquierda(string num, int vueltas)
+vector<bool> rotarizquierda(vector<bool> num, int vueltas)
 {
-    char temp;
+    bool temp;
     for(int j = vueltas; j > 0; j--)
     {
         for(int i = 0; i < num.size() - 1; i++)
@@ -287,33 +267,51 @@ string rotarizquierda(string num, int vueltas)
     return num;
 }
 
-ZZ des(int bits){
-    vector<bool> valores = ga(11,bits,3,3);
-    string digitos;
-    for(int i = 0; i < valores.size(); i++){
-        if(valores[i])
-            digitos+='1';
-        else
-            digitos+='0';
+vector<bool> partir(vector<bool> numero,int posicion, int numeros){
+    vector <bool> resultado;
+    for(int i = 0; i < numeros; i++){
+        resultado.push_back(numero[posicion]);
+        posicion++;
     }
+    return resultado;
+}
+
+vector<bool> unir(vector<bool> A, vector<bool> B){
+    vector<bool>C;
+    for(int i = 0; i < A.size(); i++){
+        C.push_back(A[i]);
+    }
+    for(int j = 0; j < B.size(); j++){
+        C.push_back(B[j]);
+    }
+    return C;
+}
+
+ZZ des(int bits){
+    vector<bool> digitos = ga(11,bits,3,3);
     int vueltas[] = {1,1,2,2,2,2,2,2,1,2,2,2,2,2,2,1};
-    string actual;
-    for(int j = 0; j < bits; j+=64)
-        actual += permutar56(digitos.substr(j,64));
+    vector<bool> actual;
+    for(int j = 0; j < bits; j+=64){
+        vector<bool> temp;
+        temp = (permutar56(partir(digitos,j,64)));
+        actual = unir(actual,temp);
+    }
     for(int k = 0; k < 16; k++){
-        string num_48bits;
+        vector<bool> num_56bits;
+        vector<bool> num_48bits;
         for(int l = 0; l < actual.size(); l+=56){
-            string c = rotarizquierda(actual.substr(l,28),vueltas[k]);
-            string d = rotarizquierda(actual.substr(l+28,28),vueltas[k]);
-            num_48bits += (c+d);
+            vector<bool> c = rotarizquierda(partir(actual,l,28),vueltas[k]);
+            vector<bool> d = rotarizquierda(partir(actual,l+28,28),vueltas[k]);
+            num_56bits = unir(num_56bits, unir(c,d));
+            num_48bits = unir(num_48bits,permutar48(unir(c,d)));
         }
-        if(num_48bits[num_48bits.size()-1] == '0')
-            num_48bits[num_48bits.size()-1] = '1';
-        ZZ resultado = convertir_base10(num_48bits);
+        if(num_48bits[num_48bits.size()-1] == 0)
+            num_48bits[num_48bits.size()-1] = 1;
+        ZZ resultado = convertir_decimal(num_48bits,num_48bits.size());
         if(ProbPrime(resultado,10)){
             return resultado;
         }
-        actual = num_48bits;
+        actual = num_56bits;
     }
     return des(bits);
 }
