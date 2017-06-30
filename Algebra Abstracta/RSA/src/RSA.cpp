@@ -109,69 +109,21 @@ ZZ RSA::chino_RSA(ZZ num){
 
 void RSA::generar_claves(int bits)
 {
-    ZZ P = ga(11,bits,3,3);
-    ZZ Q = ga(11,bits,2,4);
-    while(ProbPrime(P,10)!=1)
-    {
-        P = ga(11,bits,3,3);
-    }
-    while(ProbPrime(Q,10)!=1)
-    {
-        Q = ga(11,bits,2,4);
-    }
+    ZZ P = des(bits);
+    ZZ Q = des(bits);
     this -> p = P;
     this -> q = Q;
     N = P * Q;
     ZZ phi_N;
     phi_N = (P - 1) * (Q - 1);
     ZZ e;
-    e = ga(11,bits,2,2);
+    e = des(bits);
     while(e > phi_N || (euclides(e, phi_N) != 1))
     {
-        e = ga(11,bits,2,2);
+        e = des(bits);
     }
     this -> e = e;
     this -> d = inversa(e, phi_N);
-}
-
-ZZ RSA::get_d(){
-    return d;
-}
-
-ZZ RSA::get_e(){
-    return e;
-}
-
-ZZ RSA::get_N(){
-    return N;
-}
-
-ZZ RSA::get_p(){
-    return p;
-}
-
-ZZ RSA::get_q(){
-    return q;
-}
-
-void RSA::set_p(ZZ a){
-    this -> p = a;
-}
-
-void RSA::set_q(ZZ b){
-    this -> q = b;
-}
-
-void RSA::set_N(ZZ c){
-    this -> N = c;
-}
-
-void RSA::set_d(ZZ x){
-    this -> d = x;
-}
-
-void RSA::set_e(ZZ y){
-    this -> e = y;
 }
 
 void RSA::impr_claves(){

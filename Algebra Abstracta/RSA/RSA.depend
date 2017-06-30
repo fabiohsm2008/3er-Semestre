@@ -19,12 +19,12 @@
 	<iostream>
 	"Funciones.h"
 
-1496353868 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\main.cpp
+1498776341 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\main.cpp
 	<iostream>
 	<fstream>
 	"RSA.h"
 
-1496268826 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\include\funciones.h
+1498537788 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\include\funciones.h
 	<iostream>
 	<string>
 	<vector>
@@ -33,14 +33,14 @@
 	<NTL/ZZ.h>
 	<sstream>
 
-1496268826 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\src\funciones.cpp
+1498776541 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\src\funciones.cpp
 	"Funciones.h"
 
-1496353557 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\src\rsa.cpp
+1498626149 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\src\rsa.cpp
 	"RSA.h"
 	<fstream>
 
-1496353625 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\include\rsa.h
+1498531673 c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\include\rsa.h
 	<string>
 	"Funciones.h"
 

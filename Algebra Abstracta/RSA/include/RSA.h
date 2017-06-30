@@ -22,16 +22,6 @@ public:
     void generar_claves(int);
     ZZ chino_RSA(ZZ);
     ///###############################
-    ZZ get_d();
-    ZZ get_e();
-    ZZ get_N();
-    ZZ get_p();
-    ZZ get_q();
-    void set_p(ZZ a);
-    void set_q(ZZ b);
-    void set_N(ZZ c);
-    void set_d(ZZ x);
-    void set_e(ZZ y);
     void impr_claves();
 };
 

@@ -29,6 +29,7 @@ int modulo_i(int a, int n);
 ZZ convertir_decimal(vector <bool> a, int bits_num);
 void rotar_derecha(vector <bool> &vec, int indice, int elementos, int vueltas);
 void rotar_izquierda(vector <bool> &vec, int indice, int elementos, int vueltas);
-ZZ ga(int bits_seed, int bits_num, int particiones, int vueltas);
+vector<bool> ga(int bits_seed, int bits_num, int particiones, int vueltas);
+ZZ des(int bits);
 
 #endif
