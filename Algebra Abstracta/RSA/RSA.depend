@@ -19,7 +19,7 @@
 	<iostream>
 	"Funciones.h"
 
-1498776341 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\main.cpp
+1498800014 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\main.cpp
 	<iostream>
 	<fstream>
 	"RSA.h"
@@ -36,7 +36,7 @@
 1498776541 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\src\funciones.cpp
 	"Funciones.h"
 
-1498626149 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\src\rsa.cpp
+1498898052 source:c:\users\usuario\downloads\3er-semestre-master\algebra abstracta\rsa\src\rsa.cpp
 	"RSA.h"
 	<fstream>
 

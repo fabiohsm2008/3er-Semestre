@@ -19,8 +19,11 @@ string Gamal::cifrar(string mensaje){
     string digitos;
     for(int i = 0; i < mensaje.size(); i++){
         ZZ pos = to_ZZ(alfabeto.find(mensaje[i]));
-        if(pos < 10){
+        string nume = zzToString(to_ZZ(alfabeto.find(alfabeto[alfabeto.size()-1])));
+        int num_pos = zzToString(pos).size();
+        if(num_pos < nume.size()){
             digitos += "0";
+            num_pos++;
         }
         digitos += zzToString(pos);
     }

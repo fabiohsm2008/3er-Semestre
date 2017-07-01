@@ -1,20 +1,28 @@
-#include "RSA.h"
-#include <fstream>
+#include "Protocolo.h"
 
-using namespace std;
-
-RSA::RSA(int bits){
-    generar_claves(bits);
+Protocolo::Protocolo(int bits)
+{
+    generar_aleatorios(bits);
+    cout << q << endl;
+    cout << g << endl;
 }
 
-RSA::RSA(ZZ publica, ZZ n){
-    this -> e = publica;
-    this -> N = n;
+Protocolo::~Protocolo()
+{
+
 }
 
-string RSA::cifrar(string mensaje){
+Protocolo::Protocolo(ZZ publicaE, ZZ publicaN, int bits){
+    generar_aleatorios(bits);
+    this -> e2 = publicaE;
+    this -> N2 = publicaN;
+}
+
+string Protocolo::cifrar(string mensaje){
+    ZZ a = modulo(des(1024),N2-1);
+    ZZ K = potenciaMod(g,a,N2);
+    ZZ Ca = potenciaMod(a,e2,N2);
     string digitos;
-
     for(int i = 0; i < mensaje.size(); i++){
         ZZ pos = to_ZZ(alfabeto.find(mensaje[i]));
         string nume = zzToString(to_ZZ(alfabeto.find(alfabeto[alfabeto.size()-1])));
@@ -26,7 +34,7 @@ string RSA::cifrar(string mensaje){
         digitos += zzToString(pos);
     }
     ZZ temp = to_ZZ(digitos.size());
-    ZZ N_1 = to_ZZ(zzToString(N).size()-1);
+    ZZ N_1 = to_ZZ(zzToString(this -> q).size()-1);
     while(modulo(temp,N_1) != 0){
         int pos = alfabeto.find("w");
         digitos += zzToString(to_ZZ(pos));
@@ -41,20 +49,27 @@ string RSA::cifrar(string mensaje){
             ++temp;
             ++j;
         }
-        ZZ temp_2 = potenciaMod(stringTozz(tempi),e,N);
+        ZZ temp_2 = modulo(stringTozz(tempi)*K,this -> N2);
         ZZ cont_num = to_ZZ(zzToString(temp_2).size());
-        while(cont_num < zzToString(N).size()){
+        while(cont_num < zzToString(q).size()){
             dig_2 += "0";
             ++cont_num;
         }
         dig_2 += zzToString(temp_2);
     }
-    return dig_2;
+    int tama = zzToString(N2).size()-zzToString(Ca).size();
+    string cifrado(tama,'0');
+    cifrado += zzToString(Ca);
+    cifrado += dig_2;
+    return cifrado;
 }
 
-string RSA::descifrar(string mensaje){
+string Protocolo::descifrar(string mensaje){
+    string C = mensaje.substr(0,zzToString(N1).size());
+    mensaje = mensaje.substr(zzToString(N1).size());
+    ZZ Km = potenciaMod(stringTozz(C),this -> D,this -> N1);
     string resultado;
-    int num = (zzToString(N).size());
+    int num = (zzToString(N1).size());
     for(int i = 0; i < mensaje.size();){
         int a = 0;
         string temp;
@@ -63,9 +78,9 @@ string RSA::descifrar(string mensaje){
             temp += mensaje[i];
             ++i;
         }
-        ZZ valor = chino_RSA(stringTozz(temp));
+        ZZ valor = modulo(stringTozz(temp)*inversa(Km,N1),N1);
         int x = zzToString(valor).size();
-        while(x < zzToString(N).size()-1){
+        while(x < zzToString(q).size()-1){
             resultado += "0";
             ++x;
         }
@@ -89,49 +104,22 @@ string RSA::descifrar(string mensaje){
     return rpta;
 }
 
-ZZ RSA::chino_RSA(ZZ num){
-    ZZ d1 = modulo(d,p-1);
-    ZZ d2 = modulo(d,q-1);
-    ZZ D1 = modulo(num,p);
-    D1 = potencia(D1,d1,p);
-    ZZ D2 = modulo(num,q);
-    D2 = potencia(D2,d2,q);
-    ZZ P = p*q;
-    ZZ P1 = P/p;
-    ZZ P2 = P/q;
-    ZZ Q1 = inversa(P1,p);
-    ZZ Q2 = inversa(P2,q);
-    ZZ rpta = modulo(D1 * P1 * Q1,P);
-    rpta += modulo(D2 * P2 * Q2,P);
-    rpta = modulo(rpta,P);
-    return rpta;
+string Protocolo::firmar(){
+
 }
 
-void RSA::generar_claves(int bits)
-{
-    ZZ P = des(bits);
-    ZZ Q = des(bits);
-    this -> p = P;
-    this -> q = Q;
-    N = P * Q;
+void Protocolo::generar_aleatorios(int bits){
+    this -> p1 = des(bits);
+    this -> p2 = des(bits);
+    this -> N1 = p1*p2;
     ZZ phi_N;
-    phi_N = (P - 1) * (Q - 1);
-    ZZ e;
-    e = des(bits);
-    while(e > phi_N || (euclides(e, phi_N) != 1))
+    phi_N = (p1 - 1) * (p2 - 1);
+    this -> e1 = des(bits);
+    while(e1 > phi_N || (euclides(e1, phi_N) != 1))
     {
-        e = des(bits);
+        e1 = des(bits);
     }
-    this -> e = e;
-    this -> d = inversa(e, phi_N);
-}
-
-void RSA::impr_claves(){
-    cout << "Clave publica: " << this -> e << endl;
-    cout << "N: " << this -> N << endl;
-    ofstream guardarClaves;
-    guardarClaves.open("Claves.txt");
-    guardarClaves << "e: " << e << endl;
-    guardarClaves << "N: " << N << endl;
-    guardarClaves.close();
+    this -> D = inversa(e1, phi_N);
+    this -> q = des(bits);
+    this -> g = raiz_primitiva(q);
 }

@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1498893003 source:c:\users\usuario\desktop\protocolo\src\funciones.cpp
+	"Funciones.h"
+
+1498872226 c:\users\usuario\desktop\protocolo\include\funciones.h
+	<iostream>
+	<string>
+	<vector>
+	<stdlib.h>
+	<NTL/ZZ.h>
+	<sstream>
+
+1498898840 source:c:\users\usuario\desktop\protocolo\main.cpp
+	<iostream>
+	<NTL/ZZ.h>
+	"Protocolo.h"
+
+1498898720 source:c:\users\usuario\desktop\protocolo\src\protocolo.cpp
+	"Protocolo.h"
+
+1498897689 c:\users\usuario\desktop\protocolo\include\protocolo.h
+	"Funciones.h"
+
